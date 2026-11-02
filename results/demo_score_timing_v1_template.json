@@ -1,0 +1,24 @@
+{
+ "question": "timing",
+ "n": 12,
+ "format_ok": 12,
+ "agree": 10,
+ "kappa": 0.776,
+ "reader_informative": 7,
+ "reader_informative_and_label_informative": 6,
+ "label_informative": 6,
+ "both_ordered_n": 5,
+ "weighted_kappa_linear": 0.872,
+ "disagreements": [
+  {
+   "id": "S06",
+   "label": "no information is provided",
+   "reader": "within 2 years"
+  },
+  {
+   "id": "S08",
+   "label": "in 6 to 10 years",
+   "reader": "in 3 to 5 years"
+  }
+ ]
+}

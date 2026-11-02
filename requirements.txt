@@ -1,0 +1,2 @@
+# Only src/passages.py needs a third-party package; src/read_claude.py and src/score.py use the standard library.
+transformers
