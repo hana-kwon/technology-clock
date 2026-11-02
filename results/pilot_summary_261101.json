@@ -1,0 +1,138 @@
+{
+ "corpus": {
+  "calls": 1222,
+  "companies": "about 460 (466 distinct name strings, 461 after merging by exchange ticker)",
+  "years": "2011 to October 2026",
+  "passages": 17645,
+  "passages_mentioning_quantum_computing": 2247,
+  "passage_rule": "at most 1,150 GPT-2 tokens, paragraph boundaries (src/passages.py)",
+  "mean_words_per_passage": 803
+ },
+ "reader": "claude-sonnet-5-5 via Claude Code CLI (no tools, no settings, empty working directory)",
+ "pilot_230_template_prompt_v1": {
+  "rerun_pairs": 230,
+  "rerun_same_answer_share": 0.9696,
+  "rerun_kappa_7cat": 0.931,
+  "quotes_in_explanations": 72,
+  "quotes_found_exact_share": 0.9167,
+  "quotes_exact_or_80pct_words_share": 1.0,
+  "hand_check_40_informative_answers": {
+   "correct": 16,
+   "judged": 39,
+   "errors": {
+    "sold_or_installed_read_as_commercial_use": 7,
+    "other_target_crypto_or_other_tech": 5,
+    "horizon_inferred_not_stated": 11
+   },
+   "boundary_excluded": 1,
+   "note": "judged by the main Claude session against the source text, not by humans"
+  }
+ },
+ "holdout_150_timing_prompts_vs_independent_model_labels_70": {
+  "label|v1": {
+   "exact": "31/70",
+   "info_precision": "18/49",
+   "info_recall": "18/19",
+   "same_bin_when_both_info": "11/18"
+  },
+  "label|v3": {
+   "exact": "59/70",
+   "info_precision": "18/23",
+   "info_recall": "18/19",
+   "same_bin_when_both_info": "13/18"
+  },
+  "label|v4": {
+   "exact": "63/70",
+   "info_precision": "18/21",
+   "info_recall": "18/19",
+   "same_bin_when_both_info": "15/18"
+  },
+  "label_if_analyst_counts|v1": {
+   "exact": "31/70",
+   "info_precision": "20/49",
+   "info_recall": "20/22",
+   "same_bin_when_both_info": "12/20"
+  },
+  "label_if_analyst_counts|v3": {
+   "exact": "58/70",
+   "info_precision": "19/23",
+   "info_recall": "19/22",
+   "same_bin_when_both_info": "14/19"
+  },
+  "label_if_analyst_counts|v4": {
+   "exact": "62/70",
+   "info_precision": "19/21",
+   "info_recall": "19/22",
+   "same_bin_when_both_info": "16/19"
+  },
+  "label_if_firm_claim_counts|v1": {
+   "exact": "34/70",
+   "info_precision": "21/49",
+   "info_recall": "21/22",
+   "same_bin_when_both_info": "14/21"
+  },
+  "label_if_firm_claim_counts|v3": {
+   "exact": "56/70",
+   "info_precision": "18/23",
+   "info_recall": "18/22",
+   "same_bin_when_both_info": "13/18"
+  },
+  "label_if_firm_claim_counts|v4": {
+   "exact": "60/70",
+   "info_precision": "18/21",
+   "info_recall": "18/22",
+   "same_bin_when_both_info": "15/18"
+  }
+ },
+ "stage_question": {
+  "holdout_150": {
+   "stage_informative_share": 0.7933,
+   "timing_informative_share_v4": 0.1267,
+   "vs_independent_stage_labels_70": {
+    "same_share": 0.7571,
+    "kappa_5cat": 0.6666666666666666,
+    "both_staged_n": 51,
+    "weighted_kappa_linear_4stages": 0.7816270922537952,
+    "within_one_stage_share": 0.9412,
+    "informative_agree_share": 0.8714
+   }
+  },
+  "pilot_200_keyword": {
+   "stage_informative_share": 0.81,
+   "timing_informative_share_v4": 0.11
+  },
+  "cost_usd_380_passages": 3.5927
+ },
+ "post_date_terms_in_claude_replies": {
+  "replies_checked": 2210,
+  "hits": 0,
+  "terms": "Sycamore, COVID, ChatGPT, Willow, Majorana 1, Quantum Echoes (each only for calls before its first public date)"
+ },
+ "chronogpt_time_locked_tests": {
+  "year_filling_spec60": {
+   "criterion": "realized year in top 3 for most of 8 reached milestones",
+   "result": "0 of 8 (vintage 2024)",
+   "verdict": "fails"
+  },
+  "sentence_contrast_spec70": {
+   "criterion": ">= 10 of 13 events jump after their year more than never-happened controls, and always-happened > never-happened controls in >= 20 of 26 vintages",
+   "events_passing": "7 of 11 scored (5 not yet scorable)",
+   "controls": "1/22",
+   "vintages_present": 22,
+   "verdict": "fails (control condition cannot reach 20 of 26)"
+  },
+  "instruction_tuned_reader_spec77": {
+   "criterion_fixed_in_advance": "generated answers parsable >= 80%, else log-probability answer",
+   "vintage_2024": {
+    "format_ok": "0 of 61 (prompt v1), 0 of 61 (prompt v4)",
+    "auc_logprob_score_vs_claude_label": 0.57
+   },
+   "status": "other vintages running; no pass criterion was fixed for the log-probability answer"
+  }
+ },
+ "not_included": [
+  "licensed transcript text",
+  "company-level or passage-level outputs",
+  "model replies that quote transcripts"
+ ]
+}

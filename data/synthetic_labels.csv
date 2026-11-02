@@ -1,0 +1,13 @@
+id,timing,stage,rule_note
+S01,in 3 to 5 years,paid early deployments,"Sold and installed systems are paid deployments, not regular use (rule 3.4); explicit horizon for the target event."
+S02,no information is provided,no information is provided,Encryption-breaking date is a different event (rule 3.2); post-quantum encryption is not quantum computing use (rule 3.11).
+S03,no information is provided,research only,Vague horizon gives no time (rule 3.5). Partners testing prototype control chips in university labs is research.
+S04,no information is provided,research only,Only the analyst states a time (rule 3.7); answer_if_analyst_counts = more than 10 years from now.
+S05,already in commercial use,regular commercial use,Customer uses quantum computing in regular business with a stated result classical computing did not match (rule 3.4).
+S06,no information is provided,pilots or trials,"A first paid contract is not regular commercial use, so no time for the target event; current stage is free proofs of concept."
+S07,no information is provided,research only,A hardware roadmap date is not a date of commercial use (rule 3.2); current activity is a technical milestone.
+S08,in 6 to 10 years,paid early deployments,Target year 2030 from a 2023 call is 7 years (rule 3.6); advantage is tied to customers' practical work (rule 3.3).
+S09,no information is provided,no information is provided,Quantum-inspired software on classical hardware is not quantum computing use (rule 3.11).
+S10,more than 10 years from now,no information is provided,'Decades' counts as at least 20 years (rule 3.5).
+S11,within 2 years,paid early deployments,Hard case: the range midpoint 2.5 rounds toward the call date (rule 3.6). Readers without the rounding rule may answer in 3 to 5 years.
+S12,never or not foreseeable,no information is provided,Speaker doubts it will ever happen (rule 3.10).

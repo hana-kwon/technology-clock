@@ -1,0 +1,19 @@
+{
+ "question": "stage",
+ "n": 12,
+ "format_ok": 12,
+ "agree": 11,
+ "kappa": 0.891,
+ "reader_informative": 8,
+ "reader_informative_and_label_informative": 8,
+ "label_informative": 8,
+ "both_ordered_n": 8,
+ "weighted_kappa_linear": 0.892,
+ "disagreements": [
+  {
+   "id": "S03",
+   "label": "research only",
+   "reader": "pilots or trials"
+  }
+ ]
+}
