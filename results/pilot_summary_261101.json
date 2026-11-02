@@ -101,7 +101,15 @@
    "stage_informative_share": 0.81,
    "timing_informative_share_v4": 0.11
   },
-  "cost_usd_380_passages": 3.5927
+  "cost_usd_380_passages": 3.5927,
+  "version_note": "numbers above are the first stage prompt; stage_v2 is the revised prompt used for the full reading (exploratory, written after comparing with two model coders)",
+  "stage_v2_holdout_150": {
+   "stage_informative_share": 0.473,
+   "timing_informative_share_v4": 0.127,
+   "unparsed": 2,
+   "vs_separate_agent_labels": "59 of 69, kappa 0.80",
+   "vs_codex": "30 of 39, kappa 0.69"
+  }
  },
  "post_date_terms_in_claude_replies": {
   "replies_checked": 2210,
@@ -134,5 +142,100 @@
   "licensed transcript text",
   "company-level or passage-level outputs",
   "model replies that quote transcripts"
- ]
+ ],
+ "model_coder_panel": {
+  "note": "Claude Opus 5.5, Fable 5.1, Haiku 5.5, blind, majority of three; model labels, not human coding; human coding not started",
+  "passages": 83,
+  "unanimous_timing": 80,
+  "unanimous_stage": 66,
+  "no_majority": {
+   "timing": 0,
+   "stage": 0
+  },
+  "pairwise": {
+   "opus-fable": {
+    "timing_same": 81,
+    "timing_kappa": 0.933,
+    "stage_same": 75,
+    "stage_kappa": 0.869,
+    "stage_weighted_kappa": 0.925
+   },
+   "opus-haiku": {
+    "timing_same": 81,
+    "timing_kappa": 0.934,
+    "stage_same": 69,
+    "stage_kappa": 0.766,
+    "stage_weighted_kappa": 0.853
+   },
+   "fable-haiku": {
+    "timing_same": 81,
+    "timing_kappa": 0.931,
+    "stage_same": 71,
+    "stage_kappa": 0.8,
+    "stage_weighted_kappa": 0.892
+   }
+  },
+  "readers_vs_panel": {
+   "timing_template_v1": {
+    "n": 80,
+    "same": 42,
+    "kappa": 0.236,
+    "precision_of_other": "13/46",
+    "recall_of_other": "13/14",
+    "weighted_kappa": 0.745,
+    "within_one": 13
+   },
+   "timing_revised_v4": {
+    "n": 81,
+    "same": 74,
+    "kappa": 0.762,
+    "precision_of_other": "14/19",
+    "recall_of_other": "14/15",
+    "weighted_kappa": 0.939,
+    "within_one": 14
+   },
+   "stage_v1": {
+    "n": 83,
+    "same": 56,
+    "kappa": 0.572,
+    "precision_of_other": "52/70",
+    "recall_of_other": "52/52",
+    "weighted_kappa": 0.769,
+    "within_one": 49
+   },
+   "stage_v2": {
+    "n": 82,
+    "same": 71,
+    "kappa": 0.814,
+    "precision_of_other": "48/49",
+    "recall_of_other": "48/52",
+    "weighted_kappa": 0.853,
+    "within_one": 47
+   }
+  },
+  "panel_vs_separate_agent": {
+   "timing": {
+    "n": 70,
+    "same": 68,
+    "kappa": 0.934
+   },
+   "stage": {
+    "n": 70,
+    "same": 65,
+    "kappa": 0.903
+   }
+  },
+  "panel_vs_codex": {
+   "timing": {
+    "n": 40,
+    "same": 35,
+    "kappa": 0.787
+   },
+   "stage": {
+    "n": 40,
+    "same": 36,
+    "kappa": 0.867
+   }
+  }
+ }
 }
