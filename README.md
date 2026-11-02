@@ -10,7 +10,7 @@ The study's transcripts are licensed (S&P Capital IQ) and are not included. Ever
 |---|---|
 | `prompts/timing_v1_template.txt` | Timing question in the prompt structure of Jha, Qian, Weber, and Yang (2024, NBER WP 32161), only the question changed |
 | `prompts/timing_v4.txt` | Timing question with three rules added after the pilot (sales or installations are not commercial use; a time range only if a time is stated; encryption-breaking dates are a different event) and the call year |
-| `prompts/stage.txt` | Stage question: research only, pilots or trials, paid early deployments, regular commercial use, or no information |
+| `prompts/stage_v1.txt`, `prompts/stage_v2.txt` | Stage question: research only, pilots or trials, paid early deployments, regular commercial use, or no information. v2 adds that passing mentions and equipment supply are not a stage of use (revised after comparing v1 with model coders) |
 | `prompts/qday_v1.txt` | Separate question on when public-key encryption could be broken (not used in the main measures) |
 | `src/passages.py` | Splits a transcript into passages (the rule used in the study) |
 | `src/read_claude.py` | Reader: one model call per passage, prompt followed by the passage |
@@ -32,7 +32,7 @@ bash run_demo.sh                  # call the reader again (Claude Code CLI, abou
 
 Requirements: Python 3.9 or later; for new reader calls, the Claude Code command-line client logged in; for `src/passages.py`, the `transformers` package (GPT-2 tokenizer).
 
-Saved demo result (synthetic passages, 2026-11-01): template prompt 10 of 12 agree with the intended labels, revised prompt 12 of 12, stage question 11 of 12. The synthetic passages and their labels were written by the authors who wrote the rules, so the demo shows that the pipeline runs and reproduces the two template errors seen in the pilot; it is not a validation.
+Saved demo result (synthetic passages, 2026-11-01): template prompt 10 of 12 agree with the intended labels, revised prompt 12 of 12, stage question v1 11 of 12 and v2 12 of 12. The synthetic passages and their labels were written by the authors who wrote the rules, so the demo shows that the pipeline runs and reproduces the two template errors seen in the pilot; it is not a validation.
 
 ## Results from the licensed sample (aggregate)
 
@@ -40,9 +40,10 @@ See `results/pilot_summary_261101.json`. In short:
 
 - 1,222 calls (2011 to October 2026), 17,645 passages, 2,247 passages that mention quantum computing.
 - Template prompt on 230 pilot passages: the same answer on a second reading for 223 of 230; no fabricated quotations; a check of 40 informative answers against the source text found 16 of 39 correct (judged by a Claude session reading the source text, not by humans).
-- Holdout of 150 new passages, 70 with independent model labels: template prompt 31 of 70, revised prompt 63 of 70 (of 21 passages to which it gave a timing answer, the labels gave one to 18 and the same answer to 15). The revised prompt was written after reading the pilot; the labels are model labels; 95 of the 150 passages come from companies that also appear in the pilot.
-- Stage question: stage information in 79 percent of holdout passages (timing information: 13 percent) and 81 percent of 200 pilot passages (11 percent); 53 of 70 agree with independent stage labels, 48 of 51 within one stage.
-- No post-date terms (for example "ChatGPT" in a call before November 30, 2022) in 2,210 Claude replies.
+- Holdout of 150 new passages, 83 of them coded blind by a panel of three other models (Claude Opus 5.5, Fable 5.1, Haiku 5.5; majority of three; unanimous on 80 timing and 66 stage answers): template prompt 42 of 80 (kappa 0.24), revised prompt 74 of 81 (kappa 0.76; of its 19 timing answers the panel gave one to 14 and the same answer to 13). The revised prompt was written after reading the pilot; the labels are model labels, not human coding, which has not started; 95 of the 150 passages come from companies that also appear in the pilot.
+- Stage question: the first version read passing mentions as research and reported a stage in 79 percent of holdout passages. The revised version reports one in 47 percent (timing information: 13 percent) and matches the panel on 71 of 82 (kappa 0.81), 47 of 48 within one stage when both assign a stage. It was revised after other coders' labels on many of the same passages had been seen.
+- A coder from another developer (Codex) agreed with the panel on 35 of 40 timing and 36 of 40 stage answers.
+- No post-date terms (for example "ChatGPT" in a call before November 30, 2022) in the 2,210 Claude replies checked on 2026-11-01.
 - Time-locked models (ChronoGPT): the year-filling test and the sentence-contrast test failed criteria fixed in advance; the instruction-tuned reader followed the answer format in 0 of 61 passages for the 2024 vintage, with other vintages still running.
 
 ## Notes on reproducibility
